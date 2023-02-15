@@ -1,0 +1,5 @@
+name: Jenerator
+version: '${project.version}'
+main: furkandetseli.jenerator.Jenerator
+api-version: 1.16
+authors: [ avar ]
