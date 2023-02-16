@@ -15,7 +15,7 @@ public class memsg implements CommandExecutor {
             allmsg += args[a]+" ";
         }
         Player player = (Player) sender;
-        player.sendMessage((ChatColor.DARK_PURPLE + player.getDisplayName()) +" "+ (ChatColor.DARK_PURPLE + allmsg));
+        player.sendMessage(ChatColor.DARK_PURPLE + "" + ChatColor.ITALIC + player.getDisplayName() + " " + allmsg);
         return true;
     }
 }
