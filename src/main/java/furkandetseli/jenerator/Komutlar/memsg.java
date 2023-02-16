@@ -1,13 +1,12 @@
 package furkandetseli.jenerator.Komutlar;
 
-import net.md_5.bungee.api.ChatColor;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import java.util.UUID;
 
-public class domsg implements CommandExecutor {
+public class memsg implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -16,7 +15,7 @@ public class domsg implements CommandExecutor {
             allmsg += args[a]+" ";
         }
         Player player = (Player) sender;
-        player.sendMessage(org.bukkit.ChatColor.ITALIC.toString() + (ChatColor.of("#1BCB99") + player.getDisplayName()) +" "+ (ChatColor.of("#1BCB99") + allmsg));
+        player.sendMessage((ChatColor.DARK_PURPLE + player.getDisplayName()) +" "+ (ChatColor.DARK_PURPLE + allmsg));
         return true;
     }
 }

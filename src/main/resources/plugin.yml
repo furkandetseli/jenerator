@@ -3,3 +3,10 @@ version: '${project.version}'
 main: furkandetseli.jenerator.Jenerator
 api-version: 1.16
 authors: [ avar ]
+commands:
+  do:
+    description: "Do: Oyun içerisinde karakterinizin eylemini belirtir."
+    usage: /<command>
+  me:
+    description: "Me: Oyun mekaniklerinin izin vermediği şeyleri yapmanı sağlar."
+    usage: /<command>
