@@ -12,7 +12,7 @@ public class ChatAlanEvent implements Listener {
         String mesaj = event.getMessage();
         for (Player alıcı: sender.getWorld().getPlayers()) {
             if(alıcı.getLocation().distance(sender.getLocation()) < 14){
-                alıcı.sendMessage(mesaj);
+                alıcı.sendMessage(sender.getDisplayName() + ": " + mesaj);
             }
         }
         event.setCancelled(true);

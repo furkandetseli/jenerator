@@ -1,5 +1,6 @@
 package furkandetseli.jenerator;
 
+import furkandetseli.jenerator.Eventler.ChatAlanEvent;
 import furkandetseli.jenerator.Eventler.Chatrenk;
 import furkandetseli.jenerator.Komutlar.domsg;
 import furkandetseli.jenerator.Komutlar.memsg;
@@ -16,6 +17,7 @@ public final class Jenerator extends JavaPlugin {
 
         getServer().getPluginManager().registerEvents(new Scoreboards(), this);
         getServer().getPluginManager().registerEvents(new Chatrenk(), this);
+        getServer().getPluginManager().registerEvents(new ChatAlanEvent(), this);
     }
 
     @Override
