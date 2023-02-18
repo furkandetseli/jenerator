@@ -26,7 +26,7 @@ public class Scoreboards implements Listener {
 
         Objective obj = board.registerNewObjective("Avar","Craft","Tarih");
         obj.setDisplaySlot(DisplaySlot.SIDEBAR);
-        obj.setDisplayName(ChatColor.GREEN.toString() + ChatColor.BOLD + "Avarcraft'a Hosgeldiniz!");
+        obj.setDisplayName(ChatColor.GREEN.toString() + ChatColor.BOLD + "Avarcraft");
 
         Bukkit.getScheduler().runTaskTimer(JavaPlugin.getProvidingPlugin(getClass()), new Runnable() {
             @Override

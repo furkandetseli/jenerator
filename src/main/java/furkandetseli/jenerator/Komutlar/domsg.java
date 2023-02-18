@@ -1,6 +1,7 @@
 package furkandetseli.jenerator.Komutlar;
 
-import net.md_5.bungee.api.ChatColor;
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -12,12 +13,18 @@ public class domsg implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        String allmsg = "";
-        for(int a = 0; a < args.length; a++){
-            allmsg += args[a]+" ";
+        if (sender instanceof Player p) {
+            if (args.length == 0) {
+                p.sendMessage(ChatColor.RED + "Lütfen bir mesaj girin.");
+                return false;
+            }
+            String message = String.join(" ", args);
+            for (Player player : Bukkit.getOnlinePlayers()) {
+                if (player.getLocation().distance(p.getLocation()) <= 35) {
+                    player.sendMessage("§obağırarak " + p.getDisplayName() + ": " + message);
+                }
+            }
         }
-        Player player = (Player) sender;
-        player.sendMessage(ChatColor.of("#1BCB99") + "" + org.bukkit.ChatColor.ITALIC + player.getDisplayName() + " " + allmsg);
         return true;
     }
 }
