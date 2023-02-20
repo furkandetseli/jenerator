@@ -11,22 +11,29 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scoreboard.DisplaySlot;
 import org.bukkit.scoreboard.Objective;
 import org.bukkit.scoreboard.Score;
 import org.bukkit.scoreboard.Scoreboard;
 
+import java.util.*;
+
 public class Scoreboards implements Listener {
+    public static Set<UUID> playerset = new HashSet<>();
     @EventHandler
     public void Tablo(PlayerJoinEvent event){
         Player player = event.getPlayer();
 
         Scoreboard board = Bukkit.getScoreboardManager().getNewScoreboard();
-
+        if (!playerset.contains(player.getUniqueId())) {
+            playerset.add(player.getUniqueId());
+        }
         Objective obj = board.registerNewObjective("Avar","Craft","Tarih");
         obj.setDisplaySlot(DisplaySlot.SIDEBAR);
         obj.setDisplayName(ChatColor.GREEN.toString() + ChatColor.BOLD + "Avarcraft");
+
 
         Bukkit.getScheduler().runTaskTimer(JavaPlugin.getProvidingPlugin(getClass()), new Runnable() {
             @Override
@@ -39,7 +46,7 @@ public class Scoreboards implements Listener {
                 Score players = obj.getScore(ChatColor.WHITE + "Aktif oyuncular: ");
                 players.setScore(4);
 
-                Score online = obj.getScore(ChatColor.GREEN.toString() + Bukkit.getOnlinePlayers().size());
+                Score online = obj.getScore(ChatColor.GREEN.toString() + playerset.size());
                 online.setScore(3);
 
 
@@ -75,4 +82,10 @@ public class Scoreboards implements Listener {
         player.setScoreboard(board);
 
     }
+    @EventHandler
+    public void cikisEvent(PlayerQuitEvent e){
+        Player p = e.getPlayer();
+        playerset.remove(p.getUniqueId());
+    }
+
 }
