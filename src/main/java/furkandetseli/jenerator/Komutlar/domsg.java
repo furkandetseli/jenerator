@@ -20,8 +20,8 @@ public class domsg implements CommandExecutor {
             }
             String message = String.join(" ", args);
             for (Player player : Bukkit.getOnlinePlayers()) {
-                if (player.getLocation().distance(p.getLocation()) <= 35) {
-                    player.sendMessage("§obağırarak " + p.getDisplayName() + ": " + message);
+                if (player.getLocation().distance(p.getLocation()) <= 14) {
+                    player.sendMessage(ChatColor.DARK_PURPLE + "" + ChatColor.ITALIC + p.getDisplayName() + " " + message);
                 }
             }
         }

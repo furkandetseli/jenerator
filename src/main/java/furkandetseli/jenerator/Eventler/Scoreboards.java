@@ -68,7 +68,7 @@ public class Scoreboards implements Listener {
                     Document varmi = collection.find(filterdoc).first();
                     if (varmi != null) {
                         Integer para = varmi.getInteger("para");
-                        Score money = obj.getScore(ChatColor.GREEN.toString() + para);
+                        Score money = obj.getScore(ChatColor.GREEN.toString() + para + " Altın");
                         money.setScore(0);
                     }
 
